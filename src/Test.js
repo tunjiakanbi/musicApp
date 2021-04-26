@@ -20,7 +20,9 @@ function Test() {
         };
       
 getData();
-// animate();
+setTimeout(()=>  {
+    animate()
+}, 1000);
 
 function animate() {
     
