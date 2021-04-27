@@ -21,7 +21,7 @@ function Test() {
       
 getData();
 setTimeout(()=>  {
-    animate()
+    animate();
 }, 1000);
 
 function animate() {
@@ -44,7 +44,7 @@ function animate() {
         // tl2.from(sect3, {
         // duration: 1,
         autoAlpha: 0,
-        x: 100,
+        //x: 100,
         stagger: 0.2,
         ease: "linear",
         scrollTrigger: {
@@ -57,10 +57,12 @@ function animate() {
                 indent: 100,
             },
             //start: "top bottom",//first value is start, second value is scroller-start, same for end
-             start: "top 60%",
+            //  start: "top 60%",
+             start: "top top",
             // end: "bottom 90%",
             // end: () => `+=${document.querySelector('.sect3').offsetHeight}`,
-            end: "top 40%",
+            // end: "top 40%",
+            end: "+=100%    ",
             //  pin: true,
             toggleActions: "play none reverse reset",
             scrub: true,
@@ -68,7 +70,8 @@ function animate() {
     })
           
     tl.from('.artists', {
-        yPosition: -50,
+        // yPosition: -50,
+        y: -50,
         opacity: 0, 
         stagger:0.5, 
         duration: 15,
