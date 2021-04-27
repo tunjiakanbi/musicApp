@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.artists {
+    opacity: 1;
+  }
+  
+  #test {
+    visibility: hidden;
+    opacity: 1;
+  }
+  .m_Artist {
+          background: red;
+          height: 100vh;
+          padding-top: 5em;
+          position: relative;
+          z-index: 1;
+  }
+  .intro {
+      position: fixed;
+      top: 0;
+      z-index: 2;
+      background: white;
+      width: 100%;
+  }
