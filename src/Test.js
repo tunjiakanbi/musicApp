@@ -1,106 +1,55 @@
 import {useEffect, useRef, useState} from "react";
 // import {textIntro} from "./Intro";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+// import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './Test.css';
 function Test() {
 let testDiv = useRef(null);
-let testE = useRef(null);
-let testH = useRef(null);
+let testE = useRef();
+// let testH = useRef(null);
     const [music, setMusic] = useState([]);
     useEffect(() => {
-        //console.log(testE);
-        const getData = async () => {
-            fetch("data.json", {
-                    headers: {
-                      "Content-Type": "application/json",
-                      Accept: "application/json"
-                    }
-            })
-            .then((response) => response.json())
-            .then((data) => setMusic(data));
-        };
-      
+    const getData = async () => {
+        fetch("data.json", {
+                headers: {
+                  "Content-Type": "application/json",
+                  Accept: "application/json"
+                }
+        })
+        .then((response) => response.json())
+        .then((data) => setMusic(data));
+        // setTimeout(() => {
+        //     animateD();
+        // }, 1000); 
+        
+    };
+  
 getData();
+
+    // useEffect(() => {
+
 //gsap.registerPlugin(ScrollTrigger);
+function animateD(){
 const tl= new gsap.timeline();
-// const t2= new gsap.timeline();
-// tl.fromTo(testE.current,{ xPercent: -20,
-// opacity: 0,
-// duration: 0.3}, {xPercent: 0,opacity:1});
+
 tl.to(testDiv, 4, {opacity: 1});
 tl.from(testE.current, {
     x: -200,
     opacity: 0,
-    stagger: 0.3,
+    // stagger: 0.3,
     duration: 2,
     ease: "back"
 });
 console.log(testDiv);
 console.log(testE);
+}
+// if(window.loaded === true){
+// if(getData === true){
+animateD();
 //}
 
-
-// setTimeout(()=>  {
-//     animate();
-// }, 1000);
-
-// function animate() {
-//     gsap.registerPlugin(ScrollTrigger);
-//     const tl = new gsap.timeline();
-//     tl.from('#test', {autoAlpha: 0})
-//     .from('.intro', {
-//         xPercent: -20,
-//         opacity: 0,
-//         stagger: 0.2,
-//         duration: 2,
-//         scale: -1,
-//         ease: "back",
-//       })
-
-//     .from('.m_Artist', {
-//         autoAlpha: 0,
-//         //x: 100,
-//         stagger: 0.2,
-//         ease: "linear",
-//         scrollTrigger: {
-//             trigger: '.m_Artist',
-//             markers: {
-//                 startColor: "purple",
-//                 endColor: "fuchsia",
-//                 fontSize: "1em",
-//                 indent: 100,
-//             },
-//              start: "top top",
-//             end: "+=100%",
-//              pin: true,
-//             // toggleActions: "play none reverse reset",
-//             toggleActions: "play complete reverse reset",
-//             scrub: true,
-//         }
-//     })
-          
-//     tl.from('.artists', {
-//         y: -50,
-//         opacity: 0, 
-//         stagger:0.5, 
-//         duration: 15,
-//         ease: "back"
-//     });
-
-    
-// };
-
 }, []);
-
-// useEffect(()=>{
-//     gsap.registerPlugin(ScrollTrigger);
-// const tl= new gsap.timeline();
-// tl.fromTo(testE.current,{ xPercent: -20,
-// opacity: 0,
-// duration: 0.3}, {opacity:1})
-// },[]);
-
+// animateD()
     return (
         <div id="test" ref={el => {testDiv = el}}>
             {/* <h1 className ="intro" ref={(el) => (intro = el)}>My Awesome Music App!</h1> */}
