@@ -8,8 +8,9 @@
   }
   
   #test {
-    visibility: hidden;
-    opacity: 1;
+    /* visibility: hidden; */
+    opacity: 0;
+    background: #000;
   }
   .m_Artist {
           background: red;
@@ -17,6 +18,7 @@
           padding-top: 5em;
           position: relative;
           z-index: 1;
+          /* opacity: 1; */
   }
   .intro {
       position: fixed;
